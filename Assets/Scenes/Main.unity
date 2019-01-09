@@ -190,9 +190,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254159534}
-  m_LocalRotation: {x: -0.035448976, y: -0.000000032049353, z: -0.0000000011368312,
-    w: 0.9993715}
-  m_LocalPosition: {x: 0, y: 1.4, z: -2.5}
+  m_LocalRotation: {x: -0.014718928, y: 0.00000003447523, z: 5.0749344e-10, w: 0.9998917}
+  m_LocalPosition: {x: 0, y: 1.5, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -339,8 +338,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286574551}
-  m_LocalRotation: {x: -0.03544897, y: -0.000000011836302, z: -4.198485e-10, w: 0.9993715}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.028970547, y: -1.4697229e-15, z: 1.1158481e-15, w: 0.99958026}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00000023841858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1419432036}
@@ -470,11 +469,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterModel: {fileID: 1916979055}
-  accel: 1
+  accel: 0.25
   walkMaxSpeed: 4
   runMaxSpeed: 8
-  m_RotationStrength: 5
-  joystickThresholdToRun: 0.95
+  m_RotationStrength: 8
   inputMovementVector: {x: 0, y: 0, z: 0}
 --- !u!143 &747685358
 CharacterController:
@@ -530,8 +528,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775718935}
-  m_LocalRotation: {x: -0.053573184, y: -0.000000011848814, z: -6.3569167e-10, w: 0.9985639}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.047099628, y: -2.6909708e-10, z: -1.2688125e-11, w: 0.9988902}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00000023841858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1914275697}
@@ -771,8 +769,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920804258}
-  m_LocalRotation: {x: -0.01726505, y: -0.0000000018623671, z: -3.2132245e-11, w: 0.999851}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.010783899, y: -6.794026e-10, z: -7.300749e-12, w: 0.9999419}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00000023841858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1310065108}
@@ -900,7 +898,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 16046967c6fddc84b95f070eddf64103, type: 2}
   m_ParentHash:
   - m_Hash: -740709447
     m_ParentHash: 756556552
@@ -1009,7 +1007,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252054423}
-  m_LocalRotation: {x: -0.0397705, y: -0, z: -0, w: 0.99920887}
+  m_LocalRotation: {x: -0.014718926, y: 0.000000017236184, z: 2.5372582e-10, w: 0.9998917}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1090,10 +1088,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.4, z: -2.5}
+  m_FollowOffset: {x: 0, y: 1.4, z: -4}
   m_XDamping: 1
-  m_YDamping: 0
-  m_ZDamping: 0
+  m_YDamping: 0.3
+  m_ZDamping: 0.3
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -1215,10 +1213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.4, z: -2}
+  m_FollowOffset: {x: 0, y: 1.5, z: -2}
   m_XDamping: 1
-  m_YDamping: 0.2
-  m_ZDamping: 0.2
+  m_YDamping: 0.6
+  m_ZDamping: 0.6
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -1501,10 +1499,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.4, z: -2.5}
+  m_FollowOffset: {x: 0, y: 1.4, z: -4}
   m_XDamping: 1
-  m_YDamping: 0
-  m_ZDamping: 0
+  m_YDamping: 0.3
+  m_ZDamping: 0.3
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -2342,10 +2340,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.4, z: -2}
+  m_FollowOffset: {x: 0, y: 1.5, z: -2}
   m_XDamping: 1
-  m_YDamping: 0.2
-  m_ZDamping: 0.2
+  m_YDamping: 0.6
+  m_ZDamping: 0.6
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -2559,10 +2557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.4, z: -2}
+  m_FollowOffset: {x: 0, y: 1.5, z: -2}
   m_XDamping: 1
-  m_YDamping: 0.2
-  m_ZDamping: 0.2
+  m_YDamping: 0.6
+  m_ZDamping: 0.6
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -2636,7 +2634,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793330652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: -2.5}
+  m_LocalPosition: {x: 0, y: 1.4, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 920804259}
@@ -2674,8 +2672,8 @@ MonoBehaviour:
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
-    m_BlendHint: 0
-    m_InheritPosition: 0
+    m_BlendHint: 2
+    m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -2685,7 +2683,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_MaxSpeed: 2
-    m_AccelTime: 0.2
+    m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
@@ -2736,11 +2734,11 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 2.6
-    m_Radius: 2.3
+    m_Radius: 3.8
   - m_Height: 1.4
-    m_Radius: 2.5
+    m_Radius: 4
   - m_Height: 0.4
-    m_Radius: 1.9
+    m_Radius: 3.4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 920804260}
@@ -2877,10 +2875,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 1.4, z: -2.5}
+  m_FollowOffset: {x: 0, y: 1.4, z: -4}
   m_XDamping: 1
-  m_YDamping: 0
-  m_ZDamping: 0
+  m_YDamping: 0.3
+  m_ZDamping: 0.3
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -3009,7 +3007,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993249652}
-  m_LocalRotation: {x: -0.057891052, y: 0.000000011702197, z: 6.785907e-10, w: 0.99832296}
+  m_LocalRotation: {x: -0.032856, y: -0.000000002115454, z: -6.9543114e-11, w: 0.9994601}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3085,7 +3083,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999065292}
-  m_LocalRotation: {x: -0.021588815, y: -0, z: -0, w: 0.99976695}
+  m_LocalRotation: {x: 0.0034710253, y: -1.3189617e-10, z: 4.5762575e-13, w: 0.999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3140,8 +3138,8 @@ MonoBehaviour:
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
-    m_BlendHint: 0
-    m_InheritPosition: 0
+    m_BlendHint: 2
+    m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -3151,7 +3149,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_MaxSpeed: 2
-    m_AccelTime: 0.2
+    m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
@@ -3201,11 +3199,11 @@ MonoBehaviour:
   m_BindingMode: 5
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 2.6
+  - m_Height: 2.7
     m_Radius: 1.8
-  - m_Height: 1.4
+  - m_Height: 1.5
     m_Radius: 2
-  - m_Height: 0.4
+  - m_Height: 0.5
     m_Radius: 1.4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
@@ -3220,7 +3218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119560061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: -2}
+  m_LocalPosition: {x: 0, y: 1.5, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1999065294}
@@ -3241,4 +3239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d70cc20219cd84593f67d248eafe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Offset: {x: 0.6, y: 0.1, z: 0.5}
+  m_Offset: {x: 0.6, y: 0, z: 0.5}
