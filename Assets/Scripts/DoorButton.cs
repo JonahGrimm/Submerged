@@ -24,7 +24,7 @@ public class DoorButton : PoweredInteractable
             ButtonActivated ba;
             foreach (GameObject go in connectedObjects)
             {
-                ba = go.GetComponent<ButtonActivated>();
+                ba = go.GetComponentInChildren<ButtonActivated>();
                 ba.Activate(playerObject);
             }
 
@@ -43,7 +43,7 @@ public class DoorButton : PoweredInteractable
         ButtonActivated ba;
         foreach (GameObject go in connectedObjects)
         {
-            ba = go.GetComponent<ButtonActivated>();
+            ba = go.GetComponentInChildren<ButtonActivated>();
             ba.OnPower(status);
         }
     }

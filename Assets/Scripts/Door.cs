@@ -11,6 +11,7 @@ public class Door : ButtonActivated
     private int _plaingSnd = -1; // 0-Open, 1-Close 
     private bool isOpen = false;
     public GameObject[] glassVariants = new GameObject[3]; //0 is offline, 1 is standby, 2 is activated
+    private bool isPowered = false;
 
     public void OnPowered(bool status)
     {
@@ -18,21 +19,27 @@ public class Door : ButtonActivated
 
         if (status)
         {
+            isPowered = true;
             DoorColor(1);
             _doorSnd.clip = onPowerClip;
             _doorSnd.Play();
         }
         else
         {
+            isPowered = false;
             DoorColor(0);
             _doorSnd.clip = losePowerClip;
             _doorSnd.Play();
         }
     }
 
-    private void DoorColor(int c) //Where c is the desired color door
+    public void DoorColor(int c) //Where c is the desired color door
     {
         Debug.Log("Door DoorColor() is being used!");
+
+        //The end of the door close animation tried to make the glass red
+        if (!isPowered && c == 1) 
+            return;
 
         for (int i = 0; i < 3; i++)
         {
