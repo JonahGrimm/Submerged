@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
     public float gravity;
     public Vector3 inputMovementVector;
     public Material selectedMaterial;
-
+    private float interactRange = 5f;
 
     //Animator Vars
     private int a_Movespeed = Animator.StringToHash("Movespeed");
@@ -83,7 +83,7 @@ public class PlayerMove : MonoBehaviour
         run = p.GetButton("Run");
 
         //Check if the player is looking at an interactable
-        if (Physics.Raycast(mainCamera.position,mainCamera.forward, out interactHitInfo, 20f,interactableLayerMask))
+        if (Physics.Raycast(mainCamera.position,mainCamera.forward, out interactHitInfo, interactRange,interactableLayerMask))
         {
             selectedInteractable = interactHitInfo.collider.gameObject;
             interactable = selectedInteractable.GetComponent<Interactable>();
@@ -183,7 +183,7 @@ public class PlayerMove : MonoBehaviour
 
             Matrix4x4 matrix = Matrix4x4.TRS(selectedInteractable.transform.position, selectedInteractable.transform.rotation, scale);
 
-            Graphics.DrawMesh(interactable.mesh, matrix, selectedMaterial, 0);
+            Graphics.DrawMesh(interactable.meshForHighlightSelection, matrix, selectedMaterial, 0);
         }
     }
 

@@ -3,11 +3,14 @@ using UnityEngine;
 
 enum ButtonActivatedType
 {
-    Door
+    Door,
+    Elevator,
+    None
 }
 public class ButtonActivated : MonoBehaviour
 {
     private Door door;
+    private Elevator ele;
     private ButtonActivatedType activatedType;
     public AudioClip activateSoundEffect;
     public AudioClip onPowerClip;
@@ -23,6 +26,15 @@ public class ButtonActivated : MonoBehaviour
             door = GetComponent<Door>();
             activatedType = ButtonActivatedType.Door;
         }
+        else if (GetComponent<Elevator>() != null)
+        {
+            ele = GetComponent<Elevator>();
+            activatedType = ButtonActivatedType.Elevator;
+        }
+        else
+        {
+            activatedType = ButtonActivatedType.None;
+        }
 
         //If universal functionality is needed, that will go here
     }
@@ -36,7 +48,10 @@ public class ButtonActivated : MonoBehaviour
             case ButtonActivatedType.Door:
                 door.Activation(playerObject);
                 return;
-            default:
+            case ButtonActivatedType.Elevator:
+                ele.Activation(playerObject);
+                return;
+            case ButtonActivatedType.None:
                 Debug.Log("No Activation() behavior for this button activated object found!");
                 return;
         }
@@ -51,7 +66,10 @@ public class ButtonActivated : MonoBehaviour
             case ButtonActivatedType.Door:
                 door.OnPowered(status);
                 return;
-            default:
+            case ButtonActivatedType.Elevator:
+                ele.OnPowered(status);
+                return;
+            case ButtonActivatedType.None:
                 Debug.Log("No OnPowered behavior for this button for this object found!");
                 return;
         }

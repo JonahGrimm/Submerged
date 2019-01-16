@@ -3,16 +3,14 @@ using UnityEngine;
 
 public class PowerStation : Interactable
 {
-    public Transform cubeSocket;
-    public GameObject displayPowerCube;
-    private bool hasCube = false;
-    private GameObject activeCubeObject;
-    public AudioClip removeSoundEffect;
-    public float powerRange = 5f;
-    private PlayerMove pm;
+    public Transform cubeSocket;                    //Physical socket to instantiate the display power cube
+    public GameObject displayPowerCube;             //A reference to the gameobject that will be instantiated
+    public AudioClip removeSoundEffect;             //Sound effect for when the cube is removed (interact sound effect supplied by Interactable)
+    public PoweredInteractable[] connectedObjects;  //A reference to objects that will be affected by this station being powered/un-powered
 
-    public Vector3 tempDirection;
-    public float distance;
+    private GameObject activeCubeObject;            //A reference to the live gameobject cube if it exists
+    private bool hasCube = false;                   //Status of whether the station is holding a cube or not
+    private PlayerMove pm;                          //A reference to PlayerMove so it can give back cubes
 
     private void Start()
     {
@@ -21,8 +19,6 @@ public class PowerStation : Interactable
 
     public void Interaction(GameObject playerObject)
     {
-        Debug.Log("Power Station Interaction() is being used!");
-
         AudioSource source = playerObject.GetComponent<AudioSource>();
 
         pm = playerObject.GetComponent<PlayerMove>();
@@ -59,22 +55,14 @@ public class PowerStation : Interactable
 
     void PowerNearbyObjects(bool status)
     {
-        Debug.Log("Power Station PowerNearbyObjects() is being used!");
-
-        RaycastHit[] foundObjects = Physics.SphereCastAll(transform.position, powerRange, Vector3.forward, distance, pm.interactableLayerMask);
-
-        Debug.Log("Found " + foundObjects.Length + " objects.");
-
-        foreach (RaycastHit potentialObject in foundObjects)
+        foreach (PoweredInteractable poweredObject in connectedObjects)
         {
-            var powerComponent = potentialObject.transform.gameObject.GetComponent<PoweredInteractable>();
-
-            if (powerComponent != null)
+            if (poweredObject != null)
             {
                 if (status)
-                    powerComponent.Power++;
+                    poweredObject.Power++;
                 else
-                    powerComponent.Power--;
+                    poweredObject.Power--;
             }
         }
     }
@@ -82,6 +70,13 @@ public class PowerStation : Interactable
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, powerRange);
+        if (connectedObjects.Length > 0)
+        {
+            for (int i = 0; i < connectedObjects.Length; i++)
+            {
+                if (connectedObjects[i] != null)              
+                    Gizmos.DrawLine(transform.position + Vector3.up, connectedObjects[i].transform.position);
+            }
+        }
     }
 }

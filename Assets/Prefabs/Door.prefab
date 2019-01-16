@@ -304,7 +304,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: fd47cc3191173574698934604f1b19ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -437,10 +437,10 @@ Animator:
   m_GameObject: {fileID: 8732035313003760569}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6edf1c9cb8fb9ee41bd204d107346a17, type: 2}
+  m_Controller: {fileID: 9100000, guid: 30411a04632987945a2dbe6f593ec6e0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -838,7 +838,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6edf1c9cb8fb9ee41bd204d107346a17, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

@@ -8,10 +8,10 @@ enum InteractableType
     PowerCube,
     PowerStation,
     LightSwitch,
-    DoorButton
+    DoorButton,
+    None
 }
 //Interactable is just a "middle-man" class for the player object to communicate with the interactable
-[RequireComponent(typeof(Collider))]
 public class Interactable : MonoBehaviour
 {
     private PowerCube pc;
@@ -20,7 +20,7 @@ public class Interactable : MonoBehaviour
     private DoorButton db;
     private InteractableType it;
     public AudioClip interactSoundEffect;
-    public Mesh mesh;
+    public Mesh meshForHighlightSelection;
 
     public void InteractableInitialize()
     {
@@ -57,6 +57,7 @@ public class Interactable : MonoBehaviour
         }
         else
         {
+            it = InteractableType.None;
             Debug.Log(name + " found nothing at all!");
         }
 
@@ -80,6 +81,9 @@ public class Interactable : MonoBehaviour
                 return;
             case InteractableType.DoorButton:
                 db.Interaction(playerObject);
+                return;
+            case InteractableType.None:
+                Debug.Log("No behavior for this interactable found!");
                 return;
             default:
                 Debug.Log("No behavior for this interactable found!");

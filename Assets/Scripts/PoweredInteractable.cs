@@ -3,7 +3,9 @@ using UnityEngine;
 
 enum PoweredType
 {
-    DoorButton
+    DoorButton,
+    HeavyDoor,
+    None
 }
 public class PoweredInteractable : Interactable
 {
@@ -43,6 +45,7 @@ public class PoweredInteractable : Interactable
     public int _power = 0;
     public int requiredPower = 1;
     private DoorButton pdb;
+    private HeavyDoor hd;
     private PoweredType pt;
     public AudioClip onPowerClip;
     public AudioClip losePowerClip;
@@ -53,6 +56,15 @@ public class PoweredInteractable : Interactable
         {
             pdb = GetComponent<DoorButton>();
             pt = PoweredType.DoorButton;
+        }
+        else if (GetComponent<HeavyDoor>() != null)
+        {
+            hd = GetComponent<HeavyDoor>();
+            pt = PoweredType.HeavyDoor;
+        }
+        else
+        {
+            pt = PoweredType.None;
         }
 
         //Start() will only run on the "lowest-level" class
@@ -71,7 +83,10 @@ public class PoweredInteractable : Interactable
             case PoweredType.DoorButton:
                 pdb.OnPowered(status);
                 return;
-            default:
+            case PoweredType.HeavyDoor:
+                hd.OnPowered(status);
+                return;
+            case PoweredType.None:
                 Debug.Log("No OnPower behavior for this powered interactable object found!");
                 return;
         }

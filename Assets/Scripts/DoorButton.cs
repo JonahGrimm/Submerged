@@ -47,4 +47,17 @@ public class DoorButton : PoweredInteractable
             ba.OnPower(status);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        if (connectedObjects.Length > 0)
+        {
+            for (int i = 0; i < connectedObjects.Length; i++)
+            {
+                if (connectedObjects[i] != null)
+                    Gizmos.DrawLine(transform.position, connectedObjects[i].transform.position);
+            }
+        }
+    }
 }

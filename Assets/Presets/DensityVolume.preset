@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DensityVolume
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: e1fbb15bf92b84f40a1eb030765b5afe,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Version
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.albedo.r
+    value: 0.004672473
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.albedo.g
+    value: 0.03489905
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.albedo.b
+    value: 0.3301887
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.albedo.a
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.meanFreePath
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.asymmetry
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.volumeMask
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.textureScrollingSpeed.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.textureScrollingSpeed.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.textureScrollingSpeed.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.textureTiling.x
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.textureTiling.y
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.textureTiling.z
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.m_PositiveFade.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.m_PositiveFade.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.m_PositiveFade.z
+    value: 0.6436047
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.m_NegativeFade.x
+    value: 0.11551631
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.m_NegativeFade.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.m_NegativeFade.z
+    value: 0.035622172
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.m_UniformFade
+    value: 0.14399983
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.size.x
+    value: 250
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.size.y
+    value: 250
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.size.z
+    value: 250
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.advancedFade
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.invertFade
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: parameters.textureIndex
+    value: -1
+    objectReference: {fileID: 0}
