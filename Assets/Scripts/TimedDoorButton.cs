@@ -9,17 +9,32 @@ public class TimedDoorButton : PoweredInteractable
     private Coroutine timedDelay;
     public int timePowered = 6;
     private AudioSource source;
+    private static List<TimedDoorButton> allButtons = new List<TimedDoorButton>();
 
     private void Start()
     {
         source = GetComponent<AudioSource>();
         PoweredInteractableInitialize();
         timedDelay = null;
+        allButtons.Add(this);
+    }
+
+    public static void StopAllTimers()
+    {
+        foreach (TimedDoorButton b in allButtons)
+        {
+            if (b.timedDelay != null)
+            {
+                b.StopCoroutine(b.timedDelay);
+                b.source.Stop();
+                b.source.loop = false;
+            }
+        }
     }
 
     public void Interaction(GameObject playerObject)
     {
-        Debug.Log("DoorButton Interaction() is being used!");
+        //Debug.Log("DoorButton Interaction() is being used!");
 
         source.clip = interactSoundEffect;
         source.Play();
@@ -41,7 +56,7 @@ public class TimedDoorButton : PoweredInteractable
         }
         else
         {
-            Debug.Log("The button is not powered and would not activate.");
+            //Debug.Log("The button is not powered and would not activate.");
         }
     }
 
@@ -68,7 +83,7 @@ public class TimedDoorButton : PoweredInteractable
 
     public void OnPowered(bool status)
     {
-        Debug.Log("DoorButton OnPowered() is being used!");
+        //Debug.Log("DoorButton OnPowered() is being used!");
 
         ButtonActivated ba;
         foreach (GameObject go in connectedObjects)

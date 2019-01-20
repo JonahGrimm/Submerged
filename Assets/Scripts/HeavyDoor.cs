@@ -8,6 +8,7 @@ public class HeavyDoor : PoweredInteractable
     // References
     private Animator _animator = null;
     private AudioSource _gateSnd = null;
+    public bool defaultPosition = false;
 
     void Start()
     {
@@ -32,14 +33,20 @@ public class HeavyDoor : PoweredInteractable
         float time = stateInfo.normalizedTime;
         time = (time < 1.0f && (stateInfo.IsName("G1_Open") || stateInfo.IsName("G1_Close"))) ? 1 - time : 0.0f;
 
-        if (status)
+        //If receiving power and the default position is closed
+        //OR losing power and the default position is open
+        if ((status && !defaultPosition) || (!status && defaultPosition))
         {
+            //Open
             _gateSnd.clip = onPowerClip;
             _gateSnd.Play();
             _animator.Play("G1_Open", -1, time);
         }
-        else
+        //If receiving power and the default position is open
+        //OR losing power and the default position is closed
+        else if ((status && defaultPosition) || (!status && !defaultPosition))
         {
+            //Close
             _gateSnd.clip = losePowerClip;
             _gateSnd.Play();
             _animator.Play("G1_Close", -1, time);

@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
-using System;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMove : MonoBehaviour
@@ -12,11 +11,12 @@ public class PlayerMove : MonoBehaviour
     private CharacterController cc;
     private Player p;
     private Animator anim;
-    private Light lightComponent;
     private Transform mainCamera;
     public GameObject characterModel;
     public GameObject flashLightObject;
     public Image crossHair;
+    public Image powerCubeUI;
+    public TextMeshProUGUI powerCubeUICount;
 
     //Internal Vars
     private float joystickAngle;
@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
 
             if (_run)
                 FlashlightToggle(false);
-            else if (PowerCubes > 0)
+            else
                 FlashlightToggle(true);
         }
     }           //Uses a property to check upon every setter if running or not to toggle flashlight
@@ -59,10 +59,22 @@ public class PlayerMove : MonoBehaviour
         set
         {
             powerCubes = value;
-            if (powerCubes > 0)
-                FlashlightToggle(true);
-            else
-                FlashlightToggle(false);
+            UpdateUI();
+        }
+    }
+
+    private void UpdateUI()
+    {
+        if (PowerCubes > 0)
+        {
+            powerCubeUI.enabled = true;
+            powerCubeUICount.enabled = true;
+            powerCubeUICount.text = PowerCubes.ToString();
+        }
+        else
+        {
+            powerCubeUI.enabled = false;
+            powerCubeUICount.enabled = false;
         }
     }
 
@@ -86,10 +98,10 @@ public class PlayerMove : MonoBehaviour
         p = ReInput.players.GetPlayer(0);
         cc = GetComponent<CharacterController>();
         anim = characterModel.GetComponent<Animator>();
-        lightComponent = flashLightObject.GetComponent<Light>();
         mainCamera = Camera.main.gameObject.transform;
         interactableLayerMask = LayerMask.GetMask("Interactable");
-        FlashlightToggle(false);
+        FlashlightToggle(true);
+        flashLightObject.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

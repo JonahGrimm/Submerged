@@ -90,7 +90,7 @@ public class PoweredInteractable : Interactable
 
     void OnPower(bool status)
     {
-        Debug.Log("PoweredInteractable OnPower() is being used!");
+        //Debug.Log("PoweredInteractable OnPower() is being used!");
 
         switch (pt)
         {

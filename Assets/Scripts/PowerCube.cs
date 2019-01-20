@@ -10,7 +10,7 @@ public class PowerCube : Interactable
 
     public void Interaction(GameObject playerObject)
     {
-        Debug.Log("Power Cube behavior is being used!");
+        //Debug.Log("Power Cube behavior is being used!");
         PlayerMove pm = playerObject.GetComponent<PlayerMove>();
         pm.PowerCubes++;
         AudioSource source = playerObject.GetComponent<AudioSource>();

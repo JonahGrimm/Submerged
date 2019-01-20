@@ -57,7 +57,7 @@ public class Interactable : MonoBehaviour
 
     public void Interact(GameObject playerObject)
     {
-        Debug.Log("Interactable is doing Interact()!");
+        //Debug.Log("Interactable is doing Interact()!");
 
         switch (it)
         {

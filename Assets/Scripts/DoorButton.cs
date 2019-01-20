@@ -12,7 +12,7 @@ public class DoorButton : PoweredInteractable
 
     public void Interaction(GameObject playerObject)
     {
-        Debug.Log("DoorButton Interaction() is being used!");
+        //Debug.Log("DoorButton Interaction() is being used!");
 
         AudioSource source = playerObject.GetComponent<AudioSource>();
 
@@ -31,14 +31,14 @@ public class DoorButton : PoweredInteractable
         }
         else
         {
-            Debug.Log("The button is not powered and would not activate.");
+            //Debug.Log("The button is not powered and would not activate.");
 
         }
     }
 
     public void OnPowered(bool status)
     {
-        Debug.Log("DoorButton OnPowered() is being used!");
+        //Debug.Log("DoorButton OnPowered() is being used!");
 
         ButtonActivated ba;
         foreach (GameObject go in connectedObjects)

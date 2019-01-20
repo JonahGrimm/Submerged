@@ -6,6 +6,7 @@ public class Door : ButtonActivated
 {
     public Animator[] _animator = new Animator[3];
     public AudioSource _doorSnd = null;
+    private AudioSource activationSource = null;
     private AudioClip[] _sounds = new AudioClip[2];
     private bool _sndLoaded = false;
     private int _plaingSnd = -1; // 0-Open, 1-Close 
@@ -15,21 +16,21 @@ public class Door : ButtonActivated
 
     public void OnPowered(bool status)
     {
-        Debug.Log("Door OnPowered() is being used!");
+        //Debug.Log("Door OnPowered() is being used!");
 
         if (status)
         {
             isPowered = true;
             DoorColor(1);
-            _doorSnd.clip = onPowerClip;
-            _doorSnd.Play();
+            activationSource.clip = onPowerClip;
+            activationSource.Play();
         }
         else
         {
             isPowered = false;
             DoorColor(0);
-            _doorSnd.clip = losePowerClip;
-            _doorSnd.Play();
+            activationSource.clip = losePowerClip;
+            activationSource.Play();
         }
     }
 
@@ -93,15 +94,17 @@ public class Door : ButtonActivated
     //From DotHskDoorSlide.cs
     private void Start()
     {
-        Debug.Log("Door.cs used Start()!");
+        //Debug.Log("Door.cs used Start()!");
 
         _sounds[0] = Resources.Load("Open_Sound") as AudioClip;
         _sounds[1] = Resources.Load("Close_Sound") as AudioClip;
         _sndLoaded = (_sounds[0] != null) && (_sounds[1] != null);
         if (!_sndLoaded)
         {
-            Debug.LogWarning("Silence mode:  audioclips \"Open_Sound\" and / or \"Close_Sound\" not found in the \"Resources\" directory");
+            //Debug.LogWarning("Silence mode:  audioclips \"Open_Sound\" and / or \"Close_Sound\" not found in the \"Resources\" directory");
         }
+
+        activationSource = GetComponent<AudioSource>();
 
         ButtonActivatedInitialize();
     }
@@ -111,7 +114,7 @@ public class Door : ButtonActivated
     { // 0 - Open, 1 - Close
         string _anim = "Door_" + ((_id == 0) ? "Open" : "Close");
 
-        Debug.Log(_anim);
+        //Debug.Log(_anim);
 
         if ((_animator[0] != null))
         {

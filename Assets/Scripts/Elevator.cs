@@ -93,7 +93,7 @@ public class Elevator : ButtonActivated
     //From DotHskDoorSlide.cs
     private void Start()
     {
-        Debug.Log("Elevator.cs used Start()!");
+        //Debug.Log("Elevator.cs used Start()!");
 
         ButtonActivatedInitialize();
 
@@ -108,7 +108,7 @@ public class Elevator : ButtonActivated
     { // true - Up, false - Down
         string _anim = "Elevator_" + ((position) ? "up" : "dn");
 
-        Debug.Log(_anim);
+        //Debug.Log(_anim);
 
         if ((_animator != null))
         {

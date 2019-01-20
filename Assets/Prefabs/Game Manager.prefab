@@ -268,9 +268,9 @@ MonoBehaviour:
       _digitalAxisSensitivity: 3
       _mouseXYAxisMode: 0
       _mouseOtherAxisMode: 0
-      _mouseXYAxisSensitivity: 0.24
+      _mouseXYAxisSensitivity: 0.04
       _mouseXYAxisDeltaCalc: 0
-      _mouseOtherAxisSensitivity: 0.24
+      _mouseOtherAxisSensitivity: 0.04
       _customControllerAxisSensitivity: 1
       _buttonDoublePressSpeed: 0.3
       _buttonShortPressTime: 0.25
