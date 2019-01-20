@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21956180958fe3c499d27acf62ddeb15, type: 3}
+  m_Name: Shark
+  m_EditorClassIdentifier: 
+  text: 'Something''s wrong<s=.4>...</s><w=1> I can''t see the light buoy outside
+    the window.<w=2><n><w=4>
+
+    <s=.002>My</s>...<w=1><s=.002>God...</s><w=2><n>
+
+    <s=.002>Daryl!?<w=1> Daryl, are you there!?<w=1> Answer!'
+  actors:
+  - {fileID: 11400000, guid: 834b436bf7951f246bd229c7dc07ebe2, type: 2}
+  - {fileID: 11400000, guid: ca1a3a4cc19bed64387e48fc7f673ef9, type: 2}
+  timeUntilFade: 3

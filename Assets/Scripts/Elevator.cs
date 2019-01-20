@@ -5,60 +5,87 @@ using UnityEngine;
 public class Elevator : ButtonActivated
 {    
     public AudioSource _elevatorSnd = null; //The source to play sounds
+    public AudioSource activationSource;
     public AudioClip loopClip;              //Sound that is played during a move
     public AudioClip startClip;             //Sound that is played at the start of a move
     public AudioClip endClip;               //Sound that is played after a move
     public Animator _animator;              //Reference to the animator component    
     public bool defaultPosition = false;    //Whether the default position of the elevator is up (true) or down (false)
     private bool currentPosition = false;   //The current position of the elevator
-    private bool isMoving = false;          //Whether the elevator is moving
 
     public void OnPowered(bool status)
     {
-        Debug.Log("Elevator OnPowered() is being used!");
-
         if (status)
         {
-            _elevatorSnd.clip = onPowerClip;
-            _elevatorSnd.Play();
+            activationSource.clip = onPowerClip;
+            activationSource.Play();
         }
         else
         {
-            _elevatorSnd.clip = losePowerClip;
-            _elevatorSnd.Play();
+            activationSource.clip = losePowerClip;
+            activationSource.Play();
 
+            //For some reason... this is true when the currentPosition is NOT at the default position...
             if (currentPosition == defaultPosition)
             {
                 currentPosition = !defaultPosition;
 
                 MovePlatform(defaultPosition);
 
-                _elevatorSnd.clip = startClip;
+                activationSource.clip = startClip;
+                activationSource.Play();
                 _elevatorSnd.Play();
             }
         }
     }
 
-    public void Activation(GameObject playerObject)
+    public void ToggleObj(GameObject playerObject)
     {
-        Debug.Log("Elevator Activation() is being used!");
-
         if (currentPosition)
         {
-            currentPosition = false;
+            //Tell the method that we are currently in the up position
             MovePlatform(true);
-            _elevatorSnd.clip = startClip;
+            activationSource.clip = startClip;
+            activationSource.Play();
+            currentPosition = false;
             _elevatorSnd.Play();
         }
         else
         {
-            currentPosition = true;
+            //Tell the method that we are currently in the down position
             MovePlatform(false);
-            _elevatorSnd.clip = startClip;
+            activationSource.clip = startClip;
+            activationSource.Play();
+            currentPosition = true;
             _elevatorSnd.Play();
         }
+    }
 
-        //isMoving = true;
+    public void Activation(GameObject playerObject, bool status)
+    {
+        //If we are currently in the default position and want to move opposite
+        if (currentPosition != defaultPosition && status)
+        {
+            MovePlatform(!defaultPosition);
+            activationSource.clip = startClip;
+            activationSource.Play();
+            currentPosition = defaultPosition;
+            _elevatorSnd.Play();
+        }
+        //If we are NOT currently in the default position and want to move opposite
+        else if (currentPosition == defaultPosition && !status)
+        {
+            MovePlatform(defaultPosition);
+            activationSource.clip = startClip;
+            activationSource.Play();
+            currentPosition = !defaultPosition;
+            _elevatorSnd.Play();
+        }
+    }
+
+    void StoppedMoving()
+    {
+        _elevatorSnd.Stop();
     }
 
     //-------

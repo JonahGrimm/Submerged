@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f692e27d39958c42b895ef619738114, type: 2}
+  - {fileID: 2100000, guid: f5e341546f14c614682d2f9a6fce9397, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,5 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactSoundEffect: {fileID: 8300000, guid: 1388afaf31b18034eb819a30981a5444, type: 3}
-  mesh: {fileID: 4300000, guid: 25ec331f2df799f449b0ab615b277b8d, type: 3}
+  meshForHighlightSelection: {fileID: 0}
+  _power: 0
   requiredPower: 1
+  onPowerClip: {fileID: 0}
+  losePowerClip: {fileID: 0}
+  connectedObjects:
+  - {fileID: 0}

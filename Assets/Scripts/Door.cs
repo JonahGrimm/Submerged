@@ -35,8 +35,6 @@ public class Door : ButtonActivated
 
     public void DoorColor(int c) //Where c is the desired color door
     {
-        Debug.Log("Door DoorColor() is being used!");
-
         //The end of the door close animation tried to make the glass red
         if (!isPowered && c == 1) 
             return;
@@ -56,14 +54,8 @@ public class Door : ButtonActivated
         }
     }
 
-    public void Activation(GameObject playerObject)
+    public void ToggleObj(GameObject playerObject)
     {
-        /*AudioSource source = playerObject.GetComponent<AudioSource>();
-        source.clip = activateSoundEffect;
-        source.Play();*/
-
-        Debug.Log("Door Activation() is being used!");
-
         DoorColor(2);
 
         if (isOpen)
@@ -73,6 +65,24 @@ public class Door : ButtonActivated
         }            
         else
         {
+            isOpen = true;
+            slide_door(0);
+        }
+    }
+
+    public void Activation(GameObject playerObject, bool status)
+    {
+        //If the door is opened and it's trying to be closed
+        if (isOpen && !status)
+        {
+            DoorColor(0);
+            isOpen = false;
+            slide_door(1);
+        }
+        //If the door is closed and it's trying to be opened
+        else if (!isOpen && status)
+        {
+            DoorColor(2);
             isOpen = true;
             slide_door(0);
         }

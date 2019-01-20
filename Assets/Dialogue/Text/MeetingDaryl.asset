@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21956180958fe3c499d27acf62ddeb15, type: 3}
+  m_Name: MeetingDaryl
+  m_EditorClassIdentifier: 
+  text: <s=.4>...</s><w=1><s=.002><c=1>I'm okay.<w=1.5> Calm down already.<w=1.5><n></s>I'm
+    locked in the power room. <w=2.5><n><c=2>I'll start walking over now.<w=2.5><n><c=1>We're
+    just feeling some seismic activity, <w=.5>take a deep breath and relax.<w=2.5><n><s=.004><c=2>Daryl,<w=1>
+    it's a shark.<w=1> </s>I couldn't get a good look... but I know that thing just
+    hit us.<w=2.5><n><c=1></s>There's nothing that came up on the sonar.<w=.5> That's
+    not possible.<w=2.5><n><c=2><s=.1>That doesn't make any sense...</s><w=.5> <s=.002>I
+    just saw it myself!</s><w=2.5><n><c=1>The power's out. <w=.5>It's going to be
+    easy to see all sorts of different shapes. <w=.5>Don't worry about it.<w=2.5><c=2><n>Where
+    are you anyway?<w=2.5><n><c=1>I'm in the power room.<w=.5> I got up at the rumbling
+    of the first tremor.<w=2.5><n><c=1>We should get the power back on.<w=1><n>This
+    place is built to withstand intense seismic activity and other forces,<w=1> but
+    I'd hate to get bumped<n>around in the dark.<w=2.5><n><c=2></s>You mean from the
+    shark?</s><w=2.5><n><c=1>...there's no shark.<w=.5><n>Right before the power got
+    knocked out from that quake,<w=.5> there was nothing<n>big enough on that sonar
+    that could cause an impact of that type.<w=1><n>No shark is big enough to do that,<w=.25>
+    and no,</s><w=.25> the megalodon doesn't exist.<w=1><n>You're a marine biologist.<w=1>
+    You know this better than me.<w=2.5><n><s=.4>...</s><s=.002>Anyways,<w=1></s>
+    just get me out of here so I can grab my tools and fix this place. <w=2.5><n><c=2><i>Daryl
+    is acting strange.<w=.5> He's still blunt like usual, but he's more irritable<s=.4>...</s><w=2.5>
+  actors:
+  - {fileID: 11400000, guid: ca1a3a4cc19bed64387e48fc7f673ef9, type: 2}
+  - {fileID: 11400000, guid: ec9e11ed4b4f896449db50cc3a1d0d38, type: 2}
+  - {fileID: 11400000, guid: 834b436bf7951f246bd229c7dc07ebe2, type: 2}
+  timeUntilFade: 3

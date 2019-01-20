@@ -25,7 +25,7 @@ public class DoorButton : PoweredInteractable
             foreach (GameObject go in connectedObjects)
             {
                 ba = go.GetComponentInChildren<ButtonActivated>();
-                ba.Activate(playerObject);
+                ba.Toggle(playerObject);
             }
 
         }

@@ -7,8 +7,8 @@ enum InteractableType
 {
     PowerCube,
     PowerStation,
-    LightSwitch,
     DoorButton,
+    TimedDoorButton,
     None
 }
 //Interactable is just a "middle-man" class for the player object to communicate with the interactable
@@ -16,8 +16,8 @@ public class Interactable : MonoBehaviour
 {
     private PowerCube pc;
     private PowerStation ps;
-    private LightSwitch ls;
     private DoorButton db;
+    private TimedDoorButton timd;
     private InteractableType it;
     public AudioClip interactSoundEffect;
     public Mesh meshForHighlightSelection;
@@ -29,36 +29,27 @@ public class Interactable : MonoBehaviour
 
         if (GetComponent<PowerCube>() != null)
         {
-            Debug.Log(name + " found PowerCube.cs!");
-
             pc = GetComponent<PowerCube>();
             it = InteractableType.PowerCube;
         }
         else if (GetComponent<PowerStation>() != null)
         {
-            Debug.Log(name + " found PowerStation.cs!");
-
             ps = GetComponent<PowerStation>();
             it = InteractableType.PowerStation;
         }
-        else if (GetComponent<LightSwitch>() != null)
-        {
-            Debug.Log(name + " found LightSwitch.cs!");
-
-            ls = GetComponent<LightSwitch>();
-            it = InteractableType.LightSwitch;
-        }
         else if (GetComponent<DoorButton>() != null)
         {
-            Debug.Log(name + " found DoorButton.cs!");
-
             db = GetComponent<DoorButton>();
             it = InteractableType.DoorButton;
+        }
+        else if (GetComponent<TimedDoorButton>() != null)
+        {
+            timd = GetComponent<TimedDoorButton>();
+            it = InteractableType.TimedDoorButton;
         }
         else
         {
             it = InteractableType.None;
-            Debug.Log(name + " found nothing at all!");
         }
 
         //If universal functionality is needed, that will go here
@@ -76,16 +67,13 @@ public class Interactable : MonoBehaviour
             case InteractableType.PowerStation:
                 ps.Interaction(playerObject);
                 return;
-            case InteractableType.LightSwitch:
-                ls.Interaction(playerObject);
-                return;
             case InteractableType.DoorButton:
                 db.Interaction(playerObject);
                 return;
-            case InteractableType.None:
-                Debug.Log("No behavior for this interactable found!");
+            case InteractableType.TimedDoorButton:
+                timd.Interaction(playerObject);
                 return;
-            default:
+            case InteractableType.None:
                 Debug.Log("No behavior for this interactable found!");
                 return;
         }

@@ -24,7 +24,24 @@ public class PlayerMove : MonoBehaviour
     private float velocity = 0f;
     private float hor;
     private float ver;
-    private bool run;
+    private bool _run;
+    private bool Run
+    {
+        get
+        {
+            return _run;
+        }
+        set
+        {
+            _run = value;
+
+            if (_run)
+                FlashlightToggle(false);
+            else if (PowerCubes > 0)
+                FlashlightToggle(true);
+        }
+    }           //Uses a property to check upon every setter if running or not to toggle flashlight
+
     private RaycastHit interactHitInfo;
     private GameObject selectedInteractable;
     [HideInInspector]
@@ -73,6 +90,8 @@ public class PlayerMove : MonoBehaviour
         mainCamera = Camera.main.gameObject.transform;
         interactableLayerMask = LayerMask.GetMask("Interactable");
         FlashlightToggle(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void FixedUpdate()
@@ -80,7 +99,7 @@ public class PlayerMove : MonoBehaviour
         //Update inputs
         hor = p.GetAxis("Move Horizontal");
         ver = p.GetAxis("Move Vertical");
-        run = p.GetButton("Run");
+        Run = p.GetButton("Run");
 
         //Check if the player is looking at an interactable
         if (Physics.Raycast(mainCamera.position,mainCamera.forward, out interactHitInfo, interactRange,interactableLayerMask))
@@ -115,7 +134,7 @@ public class PlayerMove : MonoBehaviour
             LeftStickInputToWorld();
 
             //Speed cap for running
-            if (run)
+            if (Run)
             {
                 if (velocity < runMaxSpeed)
                 {
@@ -158,6 +177,7 @@ public class PlayerMove : MonoBehaviour
                     velocity = 0f;
                 }
             }
+
             crossHair.enabled = true;
         }
 

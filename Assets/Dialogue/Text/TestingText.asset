@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21956180958fe3c499d27acf62ddeb15, type: 3}
+  m_Name: TestingText
+  m_EditorClassIdentifier: 
+  text: "This is a lot of text! <w=.5><b>Bold text!</b> <i>Italics! Pretty cool right?</i>
+    Andd<s=.3>...</s><w=.5> <color=blue>COLOR!</color><w=1> <s=.3>Slowww text. <s=.001>
+    Really super fast text!</s> <w=1>Back to normal speed. Hey, have we reached a
+    new text box yet? That would be nice... I can do this! <n>New text box! \nBoosh!
+    New line. \nNew line?\nNew line.\nAnd... <n>New text box! Okay, <w=1>that's it.
+    <c=1>\n<n>But wait! <w=.5>There's more! It is I,<w=.5> Daryl!<w=1>\n<s=.3>...</s><w=1>
+    Now I'm done."
+  actors:
+  - {fileID: 11400000, guid: 834b436bf7951f246bd229c7dc07ebe2, type: 2}
+  - {fileID: 11400000, guid: ec9e11ed4b4f896449db50cc3a1d0d38, type: 2}
+  timeUntilFade: 0

@@ -18,9 +18,6 @@ public class ButtonActivated : MonoBehaviour
 
     public void ButtonActivatedInitialize()
     {
-        Debug.Log("ButtonActivated.cs used Start()!");
-
-
         if (GetComponent<Door>() != null)
         {
             door = GetComponent<Door>();
@@ -39,17 +36,31 @@ public class ButtonActivated : MonoBehaviour
         //If universal functionality is needed, that will go here
     }
 
-    public void Activate(GameObject playerObject)
+    public void Toggle(GameObject playerObject)
     {
-        Debug.Log("ButtonActivated is doing Activate()!");
-
         switch (activatedType)
         {
             case ButtonActivatedType.Door:
-                door.Activation(playerObject);
+                door.ToggleObj(playerObject);
                 return;
             case ButtonActivatedType.Elevator:
-                ele.Activation(playerObject);
+                ele.ToggleObj(playerObject);
+                return;
+            case ButtonActivatedType.None:
+                Debug.Log("No Activation() behavior for this button activated object found!");
+                return;
+        }
+    }
+
+    public void Activate(GameObject playerObject, bool status)
+    {
+        switch (activatedType)
+        {
+            case ButtonActivatedType.Door:
+                door.Activation(playerObject, status);
+                return;
+            case ButtonActivatedType.Elevator:
+                ele.Activation(playerObject, status);
                 return;
             case ButtonActivatedType.None:
                 Debug.Log("No Activation() behavior for this button activated object found!");
@@ -59,8 +70,6 @@ public class ButtonActivated : MonoBehaviour
 
     public void OnPower(bool status)
     {
-        Debug.Log("ButtonActivated is doing OnPower()!");
-
         switch (activatedType)
         {
             case ButtonActivatedType.Door:

@@ -9,11 +9,14 @@ public class SharkMove : MonoBehaviour
     public Vector3 end;
     private BoxCollider bc;
     public float moveTime = 3f;
+    private AudioSource source;
+    public float startDelay;
 
     void Start()
     {
         sharkTransform.position = start;
         bc = GetComponent<BoxCollider>();
+        source = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,13 +30,18 @@ public class SharkMove : MonoBehaviour
 
     IEnumerator Move()
     {
+        yield return new WaitForSeconds(startDelay);
+
+        source.Play();
+
         sharkTransform.gameObject.SetActive(true);
 
         sharkTransform.position = start;
         float timeElapsed = 0f;
         while (timeElapsed < moveTime)
         {
-            Vector3.Lerp(start, end, timeElapsed / moveTime);
+            timeElapsed += Time.deltaTime;
+            sharkTransform.position = Vector3.Lerp(start, end, timeElapsed / moveTime);
             yield return null;
         }
         sharkTransform.position = end;
