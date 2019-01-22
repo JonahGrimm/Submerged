@@ -2,7 +2,6 @@ using UnityEngine;
 using Rewired;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMove : MonoBehaviour
@@ -41,6 +40,7 @@ public class PlayerMove : MonoBehaviour
                 FlashlightToggle(true);
         }
     }           //Uses a property to check upon every setter if running or not to toggle flashlight
+    private bool interact;
 
     private RaycastHit interactHitInfo;
     private GameObject selectedInteractable;
@@ -112,6 +112,7 @@ public class PlayerMove : MonoBehaviour
         hor = p.GetAxis("Move Horizontal");
         ver = p.GetAxis("Move Vertical");
         Run = p.GetButton("Run");
+        interact = p.GetButtonDown("Interact");
 
         //Check if the player is looking at an interactable
         if (Physics.Raycast(mainCamera.position,mainCamera.forward, out interactHitInfo, interactRange,interactableLayerMask))
@@ -129,7 +130,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         //If player is pressing "Interact" and is looking at an interactable
-        if (p.GetButtonDown("Interact") && interactable != null)
+        if (interact && interactable != null)
         {
             //Interactable is a "middle-man" class that will call Interaction()
             //on behavior component that derives from Interactable

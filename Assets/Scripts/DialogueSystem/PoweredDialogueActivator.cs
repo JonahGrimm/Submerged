@@ -1,23 +1,36 @@
 using System;
 using UnityEngine;
 
-public class DialogueActivator : MonoBehaviour
+public class PoweredDialogueActivator : PoweredInteractable
 {
     public DialogueText textObject;
     private Collider col;
     public bool activate;           //This variable is reserved for cutscenes and debugging primarily
+    private bool activated = false;
 
     private void Start()
     {
         col = GetComponent<Collider>();
+        PoweredInteractableInitialize();
+        col.enabled = false;
+        activated = false;
+    }
+
+    public void OnPowered(bool status)
+    {
+        if (status && !activated)
+        {
+            activated = true;
+            col.enabled = true;
+        }
     }
 
     private void Update()
-    {
+    {        
         if (activate)
         {
             activate = false;
-            SendText();            
+            SendText();
         }
     }
 
@@ -37,4 +50,3 @@ public class DialogueActivator : MonoBehaviour
         db.ReadText(textObject);
     }
 }
-

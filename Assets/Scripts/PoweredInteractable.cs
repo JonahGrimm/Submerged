@@ -7,6 +7,7 @@ enum PoweredType
     HeavyDoor,
     PoweredLight,
     TimedDoorButton,
+    PoweredDialogueActivator,
     None
 }
 public class PoweredInteractable : Interactable
@@ -50,6 +51,7 @@ public class PoweredInteractable : Interactable
     private HeavyDoor hd;
     private PoweredLight pl;
     private TimedDoorButton tim;
+    private PoweredDialogueActivator pda;
     private PoweredType pt;
     public AudioClip onPowerClip;
     public AudioClip losePowerClip;
@@ -75,6 +77,11 @@ public class PoweredInteractable : Interactable
         {
             pl = GetComponent<PoweredLight>();
             pt = PoweredType.PoweredLight;
+        }
+        else if (GetComponent<PoweredDialogueActivator>() != null)
+        {
+            pda = GetComponent<PoweredDialogueActivator>();
+            pt = PoweredType.PoweredDialogueActivator;
         }
         else
         {
@@ -105,6 +112,9 @@ public class PoweredInteractable : Interactable
                 return;
             case PoweredType.PoweredLight:
                 pl.OnPowered(status);
+                return;
+            case PoweredType.PoweredDialogueActivator:
+                pda.OnPowered(status);
                 return;
             case PoweredType.None:
                 Debug.Log("No OnPower behavior for this powered interactable object found!");

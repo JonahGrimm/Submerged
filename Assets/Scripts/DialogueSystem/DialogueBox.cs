@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
+using UnityEngine.Playables;
+using Cinemachine;
 
 public class DialogueBox : MonoBehaviour
 {
@@ -107,6 +107,21 @@ public class DialogueBox : MonoBehaviour
                             {
                                 int nextChar = int.Parse(_dialogue.text.Substring(i + 3, j - 3));
                                 ChangeActor(nextChar);
+                            }
+                            else if (_dialogue.text.Substring(i, 3) == "<t=")
+                            {
+                                int nextChar = int.Parse(_dialogue.text.Substring(i + 3, j - 3));
+
+                                //Hardcoded functionality. 
+                                //In the future, I'll make this be an actually usable feature.
+                                //I just don't have the time to turn this into a full-fledged feature.
+                                var director = GameObject.Find("Ending Cutscene Director").GetComponent<PlayableDirector>();
+                                var go = GameObject.Find("LookingAtBlackEnding vcam");
+                                var player = GameObject.Find("Physics");
+                                director.Play();
+                                var cm = go.GetComponent<CinemachineVirtualCamera>();
+                                cm.Priority = 50;
+                                player.SetActive(false);
                             }
                             else
                             {

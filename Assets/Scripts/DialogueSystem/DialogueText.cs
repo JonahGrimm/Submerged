@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 [CreateAssetMenu(fileName = "New Text", menuName = "Dialogue/Text", order = 1)]
 public class DialogueText : ScriptableObject

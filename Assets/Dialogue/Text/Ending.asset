@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21956180958fe3c499d27acf62ddeb15, type: 3}
+  m_Name: Ending
+  m_EditorClassIdentifier: 
+  text: Alright,<w=.5><s=.002> that did it.<w=1.5></s> I'm going to grab the tools
+    from my room now.<w=2.5><c=1><n>You keep them in your room?<w=.5> Why didn't you
+    just say so,<w=.5> I could have grabbed them for you<s=.4>...</s><w=2.5><n><c=0>I
+    guess that's a good point.<w=.25> It doesn't matter n<t=0><n><c=2>
+  actors:
+  - {fileID: 11400000, guid: ec9e11ed4b4f896449db50cc3a1d0d38, type: 2}
+  - {fileID: 11400000, guid: 834b436bf7951f246bd229c7dc07ebe2, type: 2}
+  - {fileID: 11400000, guid: ca1a3a4cc19bed64387e48fc7f673ef9, type: 2}
+  timeUntilFade: 0
